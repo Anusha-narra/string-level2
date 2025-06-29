@@ -1,0 +1,31 @@
+import java.io.*;
+import java.util.*;
+
+public class PalindromeChecker {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        long N = scanner.nextLong();
+        scanner.close();
+        
+        if (isPalindrome(N)) {
+            System.out.println("Yes");
+        } else {
+            System.out.println("No");
+        }
+    }
+
+    public static boolean isPalindrome(long n) {
+        long original = n, reversed = 0;
+
+        while (n > 0) {
+            long digit = n % 10;
+            reversed = reversed * 10 + digit;
+            n /= 10;
+        }
+
+        return original == reversed;
+    }
+}
+
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+    

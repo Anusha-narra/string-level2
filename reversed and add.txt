@@ -1,0 +1,37 @@
+import java.io.*;
+import java.util.*;
+
+
+public class ReverseAddPali{
+    public static int reversenum(int n){
+        int r=0,s=0;
+        while (n!=0){
+            r=n%10;
+            s=s*10+r;
+            n=n/10;
+         }
+        return s;
+    }
+    public static boolean checkpali(int n){
+        int rev=reversenum(n);
+        return n==rev;
+    }
+    public static void revaddapali(int n) {
+        if (checkpali(n)){
+            System.out.println("Given Number is already a palindrome");  
+        }
+        else{
+            while(!checkpali(n)){
+                int rev=reversenum(n);
+                int sum=n+rev;
+                System.out.println(n+" + "+rev+" = "+sum);
+                n=sum;
+            }
+        }
+    }
+        public static void main(String args[]){
+          Scanner in=new Scanner(System.in);
+             int n=in.nextInt();
+              revaddapali(n);
+          }
+        }
